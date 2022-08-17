@@ -1,15 +1,16 @@
 // 1. Sum zero
 
-function addToZero(numArray) { 
-  let add = 0;
-  for (let i = 0; i < numArray.length; i++) {
-    let addIndex = numArray[i];
-    add += addIndex;
-  } 
-  return true;
-}
+const addToZero = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 1 + 1; j < arr.length; j++) {
+      if (!(arr[i] + arr[j])) {
+        return true;
+      }
+    }
+  }
 
-
+  return false;
+};
 
 console.log(addToZero([]));
 // -> False
@@ -23,26 +24,44 @@ console.log(addToZero([1, 2, 3]));
 console.log(addToZero([1, 2, 3, -2]));
 // -> True
 
+// Time complexity: 0(n^2)
+// space complexity: 0(1)
 
 // 2) Unique Characters
 function hasUniqueChars(word) {
-    let uniqueChars = new Set([])
-    for (let i = 0; i < word.length; i++) {
-      uniqueChars.add(word[i])
-    }
-    return uniqueChars.size === word.length
+  let uniqueChars = new Set([]);
+  for (let i = 0; i < word.length; i++) {
+    uniqueChars.add(word[i]);
   }
+  return uniqueChars.size === word.length;
+}
 
-console.log(hasUniqueChars("Monday")); 
+console.log(hasUniqueChars("Monday"));
 console.log(hasUniqueChars("Moonday"));
 
+// time: 0(log n)
+// space: 0(1)
 
 // 3) Pangram Sentence
 
-function isPangram(allLetters){
-  for(let i = 0; i < allLetters.length; i++)
-  if()
-}
+const isPangram = (str) => {
+  let abcStr = "abcdefghijklmnopqrstuvwxyz";
+  let newStr = str.toLowerCase();
+
+  for (let i = 0; i < abcStr.length; i++) {
+    if (!newStr.includes(abcStr[i])) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+console.log(isPangram("The quick brown fox jumps over the lazy dog!"));
+console.log(isPangram("I like cats, but not mice"));
+
+// Time: O(log n)
+// space: O(1)
 
 isPangram("The quick brown fox jumps over the lazy dog!");
 // -> True
@@ -50,14 +69,21 @@ isPangram("The quick brown fox jumps over the lazy dog!");
 isPangram("I like cats, but not mice");
 // -> False
 
-
 // 4) Longest Word
 
-function findLongestWord(arr){
-  let longestWord = longestWord.length
-  for(let i = 0; i < arr.length; i++)
-  return longestWord.length
-}
+const findLongestWord = (arrOfWords) => {
+  let currLongest = arrOfWords[0].length;
 
-findLongestWord(["hi", "hello"]);
-// -> 5
+  arrOfWords.forEach((elem) => {
+    if (elem.length > currLongest) {
+      currLongest = elem.length;
+    }
+  });
+
+  return currLongest;
+};
+
+console.log(findLongestWord(["hi", "hello"]));
+
+// time: 0(1);
+// space: 0(1);

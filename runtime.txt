@@ -1,24 +1,22 @@
-Results for the extraLargeArray
-insert 708.9947 ms
-append 2.925 ms
-
 Results for the tiny array
-insert 98.1 μs
-append 129 μs
+insert 37.3 μs
+append 80.8 μs
 
 Results for the small array
-insert 41.4 μs
-append 134 μs
+insert 47.9 μs
+append 101.6 μs
 
 Results for the medium array
-insert 156.9 μs
-append 174.9 μs
+insert 8.5115 ms
+append 491.4 μs
 
 Results for the largeArray
 insert 7.325 ms
 append 515.6 μs
 
-The results for tiny to extra large arrays start small with the doubleAppend increasing in time.
+Results for the extraLargeArray
+insert 975.2095 ms
+append 2.9545 ms
 
-The results for tiny to extra large arrays seem random with the doublerInsert.
+The results for the doublerInsert goes faster with smaller arrays.  As the array increases, the doubleAppend outperforms the doublerInsert function.  The array.push scales up linearly, while the array.unshift scales quadratically.  I would say the doubleAppend is better because the runtime is faster as the size of the input array gets larger. 
 
